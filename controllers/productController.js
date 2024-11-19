@@ -14,7 +14,8 @@ const getNewProductForm = asyncHandler(async (req, res) => {
 
 const submitNewProduct = asyncHandler(async (req, res) => {
     console.log('req.body', req.body)
-    query.insertProduct(req.body.productName, req.body.productBrand, req.body.battery, req.body.productPrice, req.body.productIMG)
+    let productUrl = req.body.productIMG != '' ? req.bodt.productIMG : 'https://cdn.pixabay.com/photo/2016/03/31/18/24/screwdriver-1294338_960_720.png'
+    query.insertProduct(req.body.productName, req.body.productBrand, req.body.battery, req.body.productPrice, productUrl)
     res.redirect('/')
 })
 

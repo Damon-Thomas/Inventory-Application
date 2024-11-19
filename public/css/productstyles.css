@@ -1,0 +1,36 @@
+:root {
+    --cardSize: calc(15vw + 4em);
+    --cardGap: calc(2vw + .5em);
+    --innerCardGap: calc(.25vw + .25em);
+}
+
+.productCardImage {
+    width: var(--cardSize);
+    height: var(--cardSize)
+}
+
+.productCard {
+    max-width: var(--cardSize);
+    display: flex;
+    flex-direction: column;
+    gap: var(--innerCardGap);
+}
+
+.productContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: start;
+    gap: var(--cardGap);
+    padding: calc(.5em + 1vw);
+}
+
+.productCardName {
+    height: 3.4em;
+    overflow-y: hidden;
+}
+
+.productCardBrand {
+    display: flex;
+    justify-content: end;
+}
