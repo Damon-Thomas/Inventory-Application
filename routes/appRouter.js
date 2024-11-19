@@ -4,9 +4,13 @@ const appRouter = Router();
 const homeController = require("../controllers/homeController.js")
 const productController = require("../controllers/productController.js")
 
-appRouter.get("/", homeController)
 appRouter.use(bodyParser.urlencoded({ extended: true }));
-appRouter.get("/products", productController)
+appRouter.post("/products/new", productController.submitNewProduct)
+appRouter.get("/products/new", productController.getNewProductForm)
+appRouter.get("/products", productController.getProducts)
+appRouter.get("/", homeController.getHome)
 
 
-module.exports = messageRouter
+
+
+module.exports = appRouter

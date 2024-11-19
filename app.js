@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const path = require("node:path");
-const appRouter = require("./routes/boardRouter")
+const appRouter = require("./routes/appRouter")
 
 
 const assetsPath = path.join(__dirname, "public");
@@ -13,9 +13,11 @@ app.set("view engine", "ejs");
 
 
 app.use("/", appRouter)
-app.use("/new", appRouter)
-app.use("/update", appRouter)
+// app.use("/new", appRouter)
+// app.use("/update", appRouter)
 app.use("/products", appRouter)
+app.use("/products/new", appRouter)
+app.use("/products/update:id", appRouter)
 
 app.get("*",(req, res) => res.render("./errors/404.ejs") )
 
