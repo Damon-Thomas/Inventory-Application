@@ -1,0 +1,64 @@
+:root{
+    --purple: #1f1139;
+    --lightBlue: #02f3e9;
+    --otherPurple: #33184d;
+    --bodyFont: 'alataregular', sans-serif;
+    --headingFont: 'bebas_neueregular', sans-serif;
+    --background: #F0F0F0;
+    --homeFont: calc(1em + .5vw);
+    --homeHeight: calc(2em + 1.5vw);
+    --linkGap: 10vw;
+    --rowGap: calc(2vw + .5em)
+}
+
+.homebutton {
+    width: 33vw;
+    background-color: var(--purple);
+    color: var(--lightBlue);
+    font-family: var(--headingFont);
+    font-size: var(--homeFont);
+    height: var(--homeHeight);
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.brand {
+    width: 33vw;
+    background-color: #525252;
+    color: var(--lightBlue);
+    font-family: var(--headingFont);
+    font-size: var(--homeFont);
+    height: var(--homeHeight);
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.homeLinks {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    column-gap: var(--linkGap);
+    row-gap: var(--rowGap);
+}
+
+.brandList {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    column-gap: var(--linkGap);
+    row-gap: var(--rowGap);
+    align-items: center;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: calc(3vh + 1em);
+}

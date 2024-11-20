@@ -1,10 +1,13 @@
 :root {
     --cardSize: calc(15vw + 4em);
     --cardGap: calc(2vw + .5em);
-    --innerCardGap: calc(.25vw + .25em);
+    --innerCardGap: calc(.5vw + .25em);
+    --background: #F0F0F0;
+    --cardPadding: calc(.25em + 1vw)
 }
 
 .productCardImage {
+    width: 15vw;
     width: var(--cardSize);
     height: var(--cardSize)
 }
@@ -14,6 +17,8 @@
     display: flex;
     flex-direction: column;
     gap: var(--innerCardGap);
+    background-color: white;
+    padding: var(--cardPadding);
 }
 
 .productContainer {
@@ -30,7 +35,19 @@
     overflow-y: hidden;
 }
 
+.productCardPrice {
+    font-weight: 800;
+    font-size: 1.5em;
+}
+
 .productCardBrand {
+    font-weight: 500;
+}
+
+.productContent{
     display: flex;
-    justify-content: end;
+    width: var(--cardSize);
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
 }

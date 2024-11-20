@@ -4,29 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>
-        <%= title %>
-    </title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/productstyles.css">
 </head>
 
 <body>
-    <%- include('header', {title: title}) %>
-        <div class="main">
-            <ul>
-                <% for(let i=0; i < products.length; i++) { %>
-                    <li class="productCard">
-                        <h3 class="productCardName">
-                            <%= products[i].name %>
-                        </h3>
-                        <p class="productCardBrand"><%= products[i].brand %></p>
-                        <p class="productCardPrice"><%= products[i].price %></p>
-                        <img src=<%= products[i].image %> alt="" class="productCardImage"> </img>
-                    </li>
-                    <% } %>
-            </ul>
-        </div>
-        <%- include('footer') %>
+    <div class="content">
+        <%- include('header', {title: title}) %>
+            <div class="main">
+                <ul class="productContainer">
+                    <% for(let i=0; i < products.length; i++) { %>
+                        <li class="productCard">
+                            <h3 class="productCardName">
+                                <%= products[i].name %>
+                            </h3>
+                            <div class="productContent">
+                                <p class="productCardPrice">$ <%= products[i].price %>
+                                </p>
+                                <p class="productCardBrand">
+                                    <%= products[i].brand %>
+                                </p>
+                            </div>
+                            <img src=<%=products[i].image %> alt="" class="productCardImage"></img>
+                        </li>
+                        <% } %>
+                </ul>
+            </div>
+            <%- include('footer') %>
+    </div>
 </body>
 
-</html>ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+</html>

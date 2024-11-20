@@ -4,29 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        <%= title %>
-    </title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/homestyles.css">
 </head>
 
 <body>
-    <%- include('header', {title: title}) %>
-        <div class="main">
-            <a class="addTool homebutton" href="/products/new">Add Tool to Website</a>
-            <a class="allTools homebutton" href="/products">See all our tools</a>
-            <ul>
-                <% for(let i=0; i < brands.length; i++) { %>
-                    <li class="brand">
-
-                        <a href="/products">
-                            <%= brands[i].brand%>
-                        </a>
-                    </li>
-
-                    <% } %>
-            </ul>
-        </div>
-        <%- include('footer') %>
+    <div class="content">
+        <%- include('header', {title: title}) %>
+            <div class="main">
+                <div class="homeLinks">
+                    <a class="addTool homebutton" href="/products/new">Add Tool to Website</a>
+                    <a class="allTools homebutton" href="/products">See all our tools</a>
+                </div>
+                <ul class="brandList">
+                    <% for(let i=0; i < brands.length; i++) { %>
+                        <li >
+                            <a class="brand" href="/products">
+                                <%= brands[i].brand%>
+                            </a>
+                        </li>
+                        <% } %>
+                </ul>
+            </div>
+            <%- include('footer') %>
+    </div>
 </body>
 
 </html>
