@@ -1,22 +1,14 @@
-<form method="POST" action="/products/new">
-    <label for="productName">Product Name: </label>
-    <input type="text" name="productName" id="productName">
-    <label for="productBrand">Brand: </label>
-    <input type="text" name="productBrand" id="productBrand">
-    <fieldset>
-        <legend>Select Tool Type: </legend>
-        <div>
-            <input type="radio" id="powertool" name="battery" value="true" checked />
+<form method="POST" action="/products/new" class="formContainer">
+    <h1 class="formTitle">Add a Tool to the Shed</h1>
+    <div class="formContent">
+        <input placeholder="Product Name" type="text" name="productName" id="productName">
+        <input placeholder="Brand" type="text" name="productBrand" id="productBrand">
+        <div class="checkBOX">
+            <input class="box" type="checkbox" id="powertool" name="battery" value="true" checked />
             <label for="powertool">Powertool</label>
         </div>
-        <div>
-            <input type="radio" id="handtool" name="battery" value="false"  />
-            <label for="handtool">Other</label>
-        </div>
-    </fieldset>
-    <label for="productPrice">Price: </label>
-    <input type="number" name="productPrice" id="productPrice">
-    <label for="productIMG">Product Image URL: </label>
-    <input type="url" name="productIMG" id="productIMG">
-    <button type="submit">Submit</button>
+        <input placeholder="Price" type="number" name="productPrice" id="productPrice">
+        <input placeholder="Product Image" type="url" name="productIMG" id="productIMG">
+        <button class="subButton" type="submit">Submit</button>
+    </div>
 </form>

@@ -14,6 +14,7 @@
 .homebutton {
     width: 33vw;
     background-color: var(--purple);
+   
     color: var(--lightBlue);
     font-family: var(--headingFont);
     font-size: var(--homeFont);

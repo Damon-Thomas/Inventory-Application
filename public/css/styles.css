@@ -94,11 +94,8 @@ time, mark, audio, video {
     width: var(--headLogo);
 }
 
-.logoIcon {
-    width: var(--headLogo);
-    height: var(--headLogo);
-    background-image:url(assets/tool-zone-high-resolution-logo.png)
-}
+
+
 
 .mainTitle {
     display: flex;
@@ -133,4 +130,15 @@ a {
     height: var(--footerHeight);
     background-color: var(--grey);
     color: #F0F0F0;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    background-color: #1f1139;
 }
