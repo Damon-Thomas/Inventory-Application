@@ -7,14 +7,26 @@
     --background: #F0F0F0;
     --homeFont: calc(1em + .5vw);
     --homeHeight: calc(2em + 1.5vw);
-    --linkGap: 10vw;
-    --rowGap: calc(2vw + .5em)
+    --rowGap: calc(2vw + .5em);
+    --mainMargin: 2em;
+    --minWidthMain: 236px;
+    --headingFont: calc(1.5em + 2vw);
+    
+}
+
+.homeLinks, .brandList {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--rowGap);
+    width: auto;
+    height: auto;
+    
+    
 }
 
 .homebutton {
-    width: 33vw;
-    background-color: var(--purple);
    
+    background-color: var(--purple);
     color: var(--lightBlue);
     font-family: var(--headingFont);
     font-size: var(--homeFont);
@@ -27,8 +39,8 @@
 }
 
 .brand {
-    width: 33vw;
-    background-color: #525252;
+    /* width: 33vw; */
+    background-color: var(--otherPurple);
     color: var(--lightBlue);
     font-family: var(--headingFont);
     font-size: var(--homeFont);
@@ -39,27 +51,44 @@
     align-items: center;
 }
 
-.homeLinks {
+.otherBrand {
+    background-color: var(--otherPurple);
+    color: var(--lightBlue);
+    font-family: var(--headingFont);
+    font-size: var(--homeFont);
+    height: var(--homeHeight);
+    font-weight: 700;
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    column-gap: var(--linkGap);
-    row-gap: var(--rowGap);
-}
-
-.brandList {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
-    column-gap: var(--linkGap);
-    row-gap: var(--rowGap);
+    justify-content: center;
     align-items: center;
 }
 
 .main {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(var(--minWidthMain), 1fr));
+}
+
+.linksList {
     display: flex;
     flex-direction: column;
-    justify-content: start;
-    align-items: center;
-    gap: calc(3vh + 1em);
+    margin: var(--mainMargin);
+    gap: var(--rowGap)
+}
+
+.heading {
+    font-size: var(--headingFont);
+    text-align: center;
+    
+}
+
+.logo {
+    height: auto;
+    width:auto;
+    margin: var(--mainMargin);
+    background-image: url('../assets/tool-zone-high-resolution-logo.png');
+    background-color: #525252;
+
+    background-position: center;
+    background-size: cover;
+    
 }

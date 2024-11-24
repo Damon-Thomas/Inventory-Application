@@ -3,7 +3,7 @@ const query = require("../model/query.js")
 
 const getHome = asyncHandler(async (req, res) => {
     let brand = await query.getDistinctBrands()
-    res.render('index', {title: "Homepage", brands: brand})
+    res.render('index', {title: "Home", brands: brand})
     res.end()
 })
 

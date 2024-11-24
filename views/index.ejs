@@ -12,19 +12,30 @@
     <div class="content">
         <%- include('header', {title: title}) %>
             <div class="main">
-                <div class="homeLinks">
-                    <a class="addTool homebutton" href="/products/new">Add Tool to Website</a>
-                    <a class="allTools homebutton" href="/products">See all our tools</a>
+                <div class="logo"></div>
+                <div class="linksList">
+                    <h3 class="heading">The Shed</h3>
+                    <div class="homeLinks">
+                        <a class="addTool homebutton" href="/products/new">Add Tool</a>
+                        <a class="allTools homebutton" href="/products">Toolbox</a>
+                    </div>
+                    <h3 class="heading">Our Partners</h3>
+                    <ul class="brandList">
+                        <% for(let i=0; i < brands.length; i++) { %>
+                            <li >
+                                <a class="brand" href="/products">
+                                    <%= brands[i].brand%>
+                                </a>
+                            </li>
+                            <% } %>
+                    </ul>
+                    <h3 class="heading">Non-Affilliated </h3>
+                    <li >
+                        <a class="otherBrand" href="/products">
+                            Other
+                        </a>
+                    </li>
                 </div>
-                <ul class="brandList">
-                    <% for(let i=0; i < brands.length; i++) { %>
-                        <li >
-                            <a class="brand" href="/products">
-                                <%= brands[i].brand%>
-                            </a>
-                        </li>
-                        <% } %>
-                </ul>
             </div>
             <%- include('footer') %>
     </div>

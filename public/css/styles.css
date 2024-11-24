@@ -19,7 +19,7 @@
 :root{
     --purple: #1f1139;
     --lightBlue: #02f3e9;
-    --otherPurple: #33184d;
+    --otherPurple: rgb(51, 24, 77);
     --bodyFont: 'alataregular', sans-serif;
     --headingFont: 'bebas_neueregular', sans-serif;
     --background: #F0F0F0;
@@ -28,6 +28,7 @@
     --footerHeight: calc(3vh + 1em);
     --headLogo: calc(3vh + .5em);
     --grey: #525252;
+    --headIconHeight: calc(1em + 4vw)
 }
 
 html, body, div, span, applet, object, iframe,
@@ -64,7 +65,7 @@ time, mark, audio, video {
     padding: var(--pagePadding); */
     height: 100vh;
     width: 100vw;
-    background-color: var(--background);
+    /* background-color: var(--background); */
     
 }
 
@@ -84,8 +85,42 @@ time, mark, audio, video {
     gap: calc(.5em + .5vw);
     padding: calc(.5em + 3vh);
     
-   
-    
+
+}
+
+.headIcon, .toolAdd {
+    width: var(--headIconHeight);
+    height: var(--headIconHeight);
+}
+
+.headIcon {
+    fill: var(--purple);
+}
+
+.toolAdd {
+    position: relative;
+}
+
+.toolPlus {
+    position: absolute;
+    top: -.25em;
+    right: -.25em;
+    height: calc(var(--headIconHeight) * .4);
+    width: calc(var(--headIconHeight) * .4);
+    fill:var(--lightBlue);
+    /* stroke: black; */
+
+}
+
+.subTitle {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.links {
+    display: flex;
+    gap: 2vw;
 }
 
 .mainTitle > .img {
@@ -140,5 +175,12 @@ form {
 }
 
 body {
-    background-color: #1f1139;
+    background-image: url('../assets/compressedToolShed.jpg');
+    background-color: #cccccc; 
+    background-position: center;
+    background-size: cover;
+    box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.85); 
+    /* background-color: #1f1139; */
+    background-color: var(--otherPurple);
 }
+

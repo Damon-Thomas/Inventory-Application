@@ -3,7 +3,7 @@ const query = require("../model/query.js")
 
 const getProducts = asyncHandler(async (req, res) => {
     let products = await query.getAllTools()
-    res.render('productPage', {title: "Products", products: products})
+    res.render('productPage', {title: "Toolbox", products: products})
     res.end()
 })
 
