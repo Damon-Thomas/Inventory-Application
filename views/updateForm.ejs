@@ -1,0 +1,16 @@
+<form method="POST" action="/products/update:id" class="formContainer"></form>
+    <h1 class="formTitle">Update a Tool in the Shed</h1>
+    <div class="formContent">
+        
+        <input placeholder="Product Name" type="text" name="productName" id="productName">
+        <input placeholder="Brand" type="text" name="productBrand" id="productBrand">
+        <div class="checkBOX">
+            <input class="box" type="checkbox" id="powertool" name="battery" value="true" checked />
+            <label for="powertool">Powertool</label>
+        </div>
+        <input placeholder="Price" type="number" name="productPrice" id="productPrice">
+        <input placeholder="Product Image" type="url" name="productIMG" id="productIMG">
+        
+        <button class="subButton" type="submit">Save</button>
+    </div>
+</form>

@@ -14,7 +14,7 @@
             <div class="main">
                 <ul class="productContainer">
                     <% for(let i=0; i < products.length; i++) { %>
-                        <li class="productCard">
+                        <li onClick="location.href = `/products/update/<%= products[i].id %>`" class="productCard">
                             <h3 class="productCardName">
                                 <%= products[i].name %>
                             </h3>

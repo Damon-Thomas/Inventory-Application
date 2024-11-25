@@ -20,7 +20,9 @@ const submitNewProduct = asyncHandler(async (req, res) => {
 })
 
 const getUpdateProductForm = asyncHandler(async (req, res) => {
-    console.log(req.params)
+    console.log('params', req.params)
+    res.render('productForm', {title: "Edit Product", formType: 'updateForm'})
+    // res.end()
 });
 
 const submitUpdateProduct = asyncHandler(async (req, res) => {
