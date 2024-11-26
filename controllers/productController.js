@@ -8,7 +8,11 @@ const getProducts = asyncHandler(async (req, res) => {
 })
 
 const getNewProductForm = asyncHandler(async (req, res) => {
-    res.render('productForm', {title: "New Product", formType: 'newForm'})
+    res.render('productForm', {title: "New Product",
+        formType: 'newForm',
+        baseStyle: "../css/styles.css",
+        formStyle: "../css/formstyles.css"
+        })
     res.end()
 })
 
@@ -20,17 +24,37 @@ const submitNewProduct = asyncHandler(async (req, res) => {
 })
 
 const getUpdateProductForm = asyncHandler(async (req, res) => {
-    console.log('params', req.params)
-    res.render('productForm', {title: "Edit Product", formType: 'updateForm'})
-    // res.end()
+    
+    const product = await query.getProductById(req.params.id)
+    let checked
+    if (product.battery) checked = "checked"
+    else checked = ''
+
+    console.log('product', product.name)
+    res.render('productForm', {title: "Edit Product",
+        formType: 'updateForm',
+        baseStyle: "../../css/styles.css",
+        formStyle: "../../css/formstyles.css",
+        id:product.id,
+        name: product.name,
+        brand: product.brand,
+        battery:checked,
+        price: product.price,
+        image: product.image
+    })
+    
 });
 
 const submitUpdateProduct = asyncHandler(async (req, res) => {
     console.log('req.body', req.body)
     console.log('req.params', req.params)
+    let battery = false
+    if( req.body.battery) {
+        battery = true
+    }
 
-    query.updateProduct(req.params, req.body.productName, req.body.productBrand, req.body.battery, req.body.productPrice, req.body.productIMG)
-    res.redirect('/')
+    query.updateProduct(req.params.id, req.body.productName, req.body.productBrand, battery, req.body.productPrice, req.body.productIMG)
+    res.redirect('/products')
 })
 
 

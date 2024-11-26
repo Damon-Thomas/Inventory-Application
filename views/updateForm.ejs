@@ -1,16 +1,20 @@
-<form method="POST" action="/products/update:id" class="formContainer"></form>
+<form method="POST" action="/products/update/<%= id %>" class="formContainer">
     <h1 class="formTitle">Update a Tool in the Shed</h1>
     <div class="formContent">
         
-        <input placeholder="Product Name" type="text" name="productName" id="productName">
-        <input placeholder="Brand" type="text" name="productBrand" id="productBrand">
+        <input value="<%= name %>"" type="text" name="productName" id="productName" required>
+        <input value="<%= brand %>"" type="text" name="productBrand" id="productBrand">
         <div class="checkBOX">
-            <input class="box" type="checkbox" id="powertool" name="battery" value="true" checked />
+            <input class="box" type="checkbox" id="powertool" name="battery" value="true" <%= battery %>/>
             <label for="powertool">Powertool</label>
         </div>
-        <input placeholder="Price" type="number" name="productPrice" id="productPrice">
-        <input placeholder="Product Image" type="url" name="productIMG" id="productIMG">
+        <input value=<%= price %> type="number" name="productPrice" id="productPrice" required>
+        <input value="<%= image %>" type="url" name="productIMG" id="productIMG">
         
-        <button class="subButton" type="submit">Save</button>
+        <div class="buttons">
+            <button class="subButton" type="submit">Save</button>
+            <!-- this parts not good -->
+            <form method="POST" action="/products/update/delete"><button class="delButton">Delete</button></form>
+        </div>
     </div>
 </form>
