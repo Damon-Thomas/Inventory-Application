@@ -3,13 +3,18 @@
     <div class="formContent">
         
         <input value="<%= name %>"" type="text" name="productName" id="productName" required>
+        <%- include('formErrors', {errors: errors, selector: 'productName'}) %>
         <input value="<%= brand %>"" type="text" name="productBrand" id="productBrand">
+        <%- include('formErrors', {errors: errors, selector: 'productBrand'}) %>
         <div class="checkBOX">
             <input class="box" type="checkbox" id="powertool" name="battery" value="true" <%= battery %>/>
             <label for="powertool">Powertool</label>
         </div>
-        <input value=<%= price %> type="number" name="productPrice" id="productPrice" required>
+        <%- include('formErrors', {errors: errors, selector: 'battery'}) %>
+        <input value=<%= price %> type="float" name="productPrice" id="productPrice" required>
+        <%- include('formErrors', {errors: errors, selector: 'productPrice'}) %>
         <input value="<%= image %>" type="url" name="productIMG" id="productIMG">
+        <%- include('formErrors', {errors: errors, selector: 'productIMG'}) %>
         
         <div class="buttons">
             <button class="subButton" type="submit">Save</button>

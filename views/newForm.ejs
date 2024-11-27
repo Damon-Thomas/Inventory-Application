@@ -1,14 +1,21 @@
 <form method="POST" action="/products/new" class="formContainer">
     <h1 class="formTitle">Add a Tool to the Shed</h1>
     <div class="formContent">
-        <input placeholder="Product Name" type="text" name="productName" id="productName">
+        <!-- <input placeholder="Product Name" type="text" name="productName" id="productName" required> -->
+        <input placeholder="Product Name" type="text" name="productName" id="productName" >
+        <%- include('formErrors', {errors: errors, selector: 'productName'}) %>
         <input placeholder="Brand" type="text" name="productBrand" id="productBrand">
+        <%- include('formErrors', {errors: errors, selector: 'productBrand'}) %>
         <div class="checkBOX">
             <input class="box" type="checkbox" id="powertool" name="battery" value="true" checked />
             <label for="powertool">Powertool</label>
         </div>
-        <input placeholder="Price" type="number" name="productPrice" id="productPrice">
+        <%- include('formErrors', {errors: errors, selector: 'battery'}) %>
+        <!-- <input placeholder="Price" type="float" name="productPrice" id="productPrice" required> -->
+        <input placeholder="Price" type="float" name="productPrice" id="productPrice" >
+        <%- include('formErrors', {errors: errors, selector: 'productPrice'}) %>
         <input placeholder="Product Image" type="url" name="productIMG" id="productIMG">
+        <%- include('formErrors', {errors: errors, selector: 'productIMG'}) %>
         <button class="subButton" type="submit">Submit</button>
     </div>
 </form>

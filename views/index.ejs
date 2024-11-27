@@ -23,18 +23,19 @@
                     <ul class="brandList">
                         <% for(let i=0; i < brands.length; i++) { %>
                             <li >
-                                <a class="brand" href="/products">
+                                <a class="brand" href="/products?brand=<%= brands[i].brand%>">
                                     <%= brands[i].brand%>
                                 </a>
+                                <a href="/products/delete/brand?brand=<%= brands[i].brand%>" class="deleteBrand">Delete</a>
                             </li>
                             <% } %>
                     </ul>
                     <h3 class="heading">Non-Affilliated </h3>
                     <li >
-                        <a class="otherBrand" href="/products">
+                        <a class="otherBrand" href="/products?brand=other">
                             Other
                         </a>
-                    </li>
+                    </li> 
                 </div>
             </div>
             <%- include('footer') %>

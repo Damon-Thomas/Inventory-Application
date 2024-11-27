@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/productstyles.css">
+    <script defer type="text/javascript" src="views/deleteHandler.js"></script>
 </head>
 
 <body>
@@ -26,6 +27,7 @@
                                 </p>
                             </div>
                             <img loading="lazy" src=<%=products[i].image %> alt="" class="productCardImage"></img>
+                            <a href="/products/delete/product?product=<%= products[i].id%>" class="deleteBrand">Delete</a>
                         </li>
                         <% } %>
                 </ul>
@@ -33,5 +35,7 @@
             <%- include('footer') %>
     </div>
 </body>
+
+
 
 </html>

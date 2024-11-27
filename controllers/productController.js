@@ -1,26 +1,49 @@
 const asyncHandler = require("express-async-handler");
-const query = require("../model/query.js")
+const query = require("../model/query.js");
+const { validationResult } = require("express-validator");
+
+
+
 
 const getProducts = asyncHandler(async (req, res) => {
+    if(Object.keys(req.query).length != 0) {
+        
+    let products = await query.getToolsByBrand(req.query.brand)
+    res.render('productPage', {title: "Toolbox", products: products})}
+    else {
+        
     let products = await query.getAllTools()
     res.render('productPage', {title: "Toolbox", products: products})
-    res.end()
+    }
+    
 })
 
 const getNewProductForm = asyncHandler(async (req, res) => {
     res.render('productForm', {title: "New Product",
         formType: 'newForm',
         baseStyle: "../css/styles.css",
-        formStyle: "../css/formstyles.css"
+        formStyle: "../css/formstyles.css",
+        errors: null
         })
-    res.end()
+    
 })
 
 const submitNewProduct = asyncHandler(async (req, res) => {
-    console.log('req.body', req.body)
+    const result = validationResult(req)
+    if(result.isEmpty()) {
     let productUrl = req.body.productIMG != '' ? req.bodt.productIMG : 'https://cdn.pixabay.com/photo/2016/03/31/18/24/screwdriver-1294338_960_720.png'
     query.insertProduct(req.body.productName, req.body.productBrand, req.body.battery, req.body.productPrice, productUrl)
     res.redirect('/')
+    }
+    else{
+    res.render('productForm', {title: "New Product",
+        formType: 'newForm',
+        baseStyle: "../css/styles.css",
+        formStyle: "../css/formstyles.css",
+        errors: result.array(),
+        })
+}
+    
 })
 
 const getUpdateProductForm = asyncHandler(async (req, res) => {
@@ -29,8 +52,6 @@ const getUpdateProductForm = asyncHandler(async (req, res) => {
     let checked
     if (product.battery) checked = "checked"
     else checked = ''
-
-    console.log('product', product.name)
     res.render('productForm', {title: "Edit Product",
         formType: 'updateForm',
         baseStyle: "../../css/styles.css",
@@ -40,21 +61,37 @@ const getUpdateProductForm = asyncHandler(async (req, res) => {
         brand: product.brand,
         battery:checked,
         price: product.price,
-        image: product.image
+        image: product.image,
+        errors: null
     })
     
 });
 
 const submitUpdateProduct = asyncHandler(async (req, res) => {
-    console.log('req.body', req.body)
-    console.log('req.params', req.params)
+    const product = await query.getProductById(req.params.id)
+    const result = validationResult(req)
     let battery = false
     if( req.body.battery) {
         battery = true
     }
-
-    query.updateProduct(req.params.id, req.body.productName, req.body.productBrand, battery, req.body.productPrice, req.body.productIMG)
+    if(result.isEmpty()) {
+    let productUrl = req.body.productIMG != '' ? req.body.productIMG : 'https://cdn.pixabay.com/photo/2016/03/31/18/24/screwdriver-1294338_960_720.png'
+    query.updateProduct(req.params.id, req.body.productName, req.body.productBrand, battery, req.body.productPrice, productUrl)
     res.redirect('/products')
+    }
+    else{
+    res.render('productForm', {title: "Edit Product",
+        formType: 'updateForm',
+        baseStyle: "../../css/styles.css",
+        formStyle: "../../css/formstyles.css",
+        id:product.id,
+        name: product.name,
+        brand: product.brand,
+        battery:battery,
+        price: product.price,
+        image: product.image,
+        errors: result.array()
+    })}  
 })
 
 

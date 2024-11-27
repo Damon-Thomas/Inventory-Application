@@ -13,8 +13,6 @@ app.set("view engine", "ejs");
 
 
 app.use("/", appRouter)
-// app.use("/new", appRouter)
-// app.use("/update", appRouter)
 app.use("/products", appRouter)
 app.use("/products/new", appRouter)
 app.use("/products/update:id", appRouter)
