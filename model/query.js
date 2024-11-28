@@ -44,7 +44,12 @@ async function toolsWithOrWOPower(bool) {
 }
 
 async function deleteBrand(brand) {
-  await pool.query(`UPDATE all_inventory SET brand='other' WHERE brand=${brand}`);
+  await pool.query(`UPDATE all_inventory SET brand='other' WHERE brand='${brand}';`);
+}
+
+async function deleteProductById(id) {
+  await pool.query(`DELETE FROM all_inventory WHERE id=${id};`);
+  console.log('id', id)
 }
 
 async function getProductById(id) {
@@ -61,5 +66,6 @@ module.exports = {
   updateProduct,
   deleteBrand,
   getProductById,
-  getToolsByBrand
+  getToolsByBrand,
+  deleteProductById
 };

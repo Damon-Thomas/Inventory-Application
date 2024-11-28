@@ -17,11 +17,19 @@ const validator =
         .isFloat({min: 1, max: 9999}).withMessage("Price must be between 1 and 9999."),
     body('productIMG').trim()
         .optional({values: 'falsy'})
-        .isURL().withMessage('Must be valid URL')
-        
+        .isURL().withMessage('Must be valid URL'),
+    
     
 ]
 
+const editValidator = [
+    body('.password').trim()
+        .custom(value => {
+            return value == process.env.ADMINPASSWORD
+        }).withMessage('Incorrect Password')
+]
+
 module.exports ={
-    validator
+    validator,
+    editValidator
 }

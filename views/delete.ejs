@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Delete <%= selection %></title>
 </head>
 <body>
     <div class="deleter">
         <h1 class="subTitle">Delete <%= selection %>?</h1>
-        <form method="POST" action=<%= acter %>> class="passwordVerifier">
+        <form method="POST" action=<%= acter %> class="passwordVerifier">
             <div class="innie">
                 <label for="deletePass" class="deleteLabel">Password: </label>
                 <input type="text" class="deleteInput" name="deletePass" id="deletePass">
+                <p class="errorMessage"><%= pass %></p>
             </div>
-            <button type="submit" class="verifyDeleter"></button>
+            <button type="submit" class="verifyDeleter">Delete</button>
         </form>
     </div>
 </body>

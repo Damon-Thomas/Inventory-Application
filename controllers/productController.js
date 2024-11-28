@@ -1,6 +1,7 @@
 const asyncHandler = require("express-async-handler");
 const query = require("../model/query.js");
 const { validationResult } = require("express-validator");
+const { render } = require("ejs");
 
 
 
@@ -75,6 +76,7 @@ const submitUpdateProduct = asyncHandler(async (req, res) => {
         battery = true
     }
     if(result.isEmpty()) {
+    
     let productUrl = req.body.productIMG != '' ? req.body.productIMG : 'https://cdn.pixabay.com/photo/2016/03/31/18/24/screwdriver-1294338_960_720.png'
     query.updateProduct(req.params.id, req.body.productName, req.body.productBrand, battery, req.body.productPrice, productUrl)
     res.redirect('/products')
@@ -94,12 +96,69 @@ const submitUpdateProduct = asyncHandler(async (req, res) => {
     })}  
 })
 
+const deleteBrand = asyncHandler(async (req, res) => {
+    console.log(req.query)
+    res.render('delete', 
+        {selection: "brand",
+         acter: `/products/delete/brand?brand=${req.query.brand}`,
+         pass: ''
+        }
+    )
+})
+
+const brandDeleteVerifier = asyncHandler(async (req, res) => {
+    console.log(req.query)
+    if(req.body.deletePass == process.env.ADMINPASSWORD) {
+        query.deleteBrand(req.query.brand)
+        res.redirect('/')
+    }
+    else {
+        res.render('delete',
+            {selection: 'brand', 
+                acter: `/products/delete/brand?brand=${req.query.brand}`,
+                pass: 'Invalid Password'
+            }
+        )
+    }
+})
+
+const deleteProduct = asyncHandler(async (req, res) => {
+    console.log('dp', req.query)
+    res.render('delete', 
+        {selection: "product",
+         acter: `/products/delete/product?product=${req.query.product}`,
+         pass: ''
+        }
+    )
+})
+
+const productDeleteVerifier = asyncHandler(async (req, res) => {
+    console.log('verify', req.query)
+    if(req.body.deletePass == process.env.ADMINPASSWORD) {
+        query.deleteProductById(req.query.product)
+        res.redirect('/products')
+    }
+    else {
+        res.render('delete',
+            {selection: 'product', 
+                acter: `/products/delete/product?product=${req.query.product}`,
+                pass: 'Invalid Password'
+            }
+        )
+    }
+})
+
+
 
 module.exports ={
     getProducts,
     getNewProductForm,
     submitNewProduct,
     getUpdateProductForm,
-    submitUpdateProduct
+    submitUpdateProduct, 
+    deleteBrand,
+    brandDeleteVerifier,
+    deleteProduct,
+    productDeleteVerifier
     
 }

@@ -1,25 +1,25 @@
 <form method="POST" action="/products/update/<%= id %>" class="formContainer">
     <h1 class="formTitle">Update a Tool in the Shed</h1>
     <div class="formContent">
-        
-        <input value="<%= name %>"" type="text" name="productName" id="productName" required>
-        <%- include('formErrors', {errors: errors, selector: 'productName'}) %>
-        <input value="<%= brand %>"" type="text" name="productBrand" id="productBrand">
-        <%- include('formErrors', {errors: errors, selector: 'productBrand'}) %>
-        <div class="checkBOX">
-            <input class="box" type="checkbox" id="powertool" name="battery" value="true" <%= battery %>/>
-            <label for="powertool">Powertool</label>
-        </div>
-        <%- include('formErrors', {errors: errors, selector: 'battery'}) %>
-        <input value=<%= price %> type="float" name="productPrice" id="productPrice" required>
-        <%- include('formErrors', {errors: errors, selector: 'productPrice'}) %>
-        <input value="<%= image %>" type="url" name="productIMG" id="productIMG">
-        <%- include('formErrors', {errors: errors, selector: 'productIMG'}) %>
-        
-        <div class="buttons">
-            <button class="subButton" type="submit">Save</button>
-            <!-- this parts not good -->
-            <form method="POST" action="/products/update/delete"><button class="delButton">Delete</button></form>
-        </div>
+
+        <input value="<%= name %>"" type=" text" name="productName" id="productName" required>
+        <%- include('formErrors', {errors: errors, selector: 'productName' }) %>
+            <input value="<%= brand %>"" type=" text" name="productBrand" id="productBrand">
+            <%- include('formErrors', {errors: errors, selector: 'productBrand' }) %>
+                <div class="checkBOX">
+                    <input class="box" type="checkbox" id="powertool" name="battery" value="true" <%=battery %>/>
+                    <label for="powertool">Powertool</label>
+                </div>
+                <%- include('formErrors', {errors: errors, selector: 'battery' }) %>
+                    <input value=<%=price %> type="float" name="productPrice" id="productPrice" required>
+                    <%- include('formErrors', {errors: errors, selector: 'productPrice' }) %>
+                        <input value="<%= image %>" type="url" name="productIMG" id="productIMG">
+                        <%- include('formErrors', {errors: errors, selector: 'productIMG' }) %>
+                            <input placeholder="Password" type="text" name="password" id="password" required>
+                            <%- include('formErrors', {errors: errors, selector: 'password' }) %>
+
+                                <button class="subButton" type="submit">Save</button>
+
+
     </div>
 </form>
