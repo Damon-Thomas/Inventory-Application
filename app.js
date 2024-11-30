@@ -22,5 +22,5 @@ app.get("*",(req, res) => res.render("./errors/404.ejs") )
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`My first Express app - listening on port ${PORT}!`);
+  
 });

@@ -19,6 +19,14 @@
     flex-direction: column;
     gap: var(--innerCardGap);
     background-color: white;
+    /* padding: var(--cardPadding); */
+}
+
+.topContent {
+    display: flex;
+    flex-direction: column;
+    gap: var(--innerCardGap);
+    max-width: var(--cardSize);
     padding: var(--cardPadding);
 }
 
@@ -32,7 +40,7 @@
 }
 
 .productCardName {
-    height: 3.4em;
+    height: 2.3em;
     overflow-y: hidden;
    
 }
@@ -53,4 +61,14 @@
     justify-content: start;
     align-items: start;
    
+}
+
+.deleteProduct {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(110, 3, 3);
+    color: white;
+    padding: calc(.25em + .5vw) 0;
+    font-weight: 700;
 }

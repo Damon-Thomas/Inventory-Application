@@ -97,7 +97,6 @@ const submitUpdateProduct = asyncHandler(async (req, res) => {
 })
 
 const deleteBrand = asyncHandler(async (req, res) => {
-    console.log(req.query)
     res.render('delete', 
         {heading: "Un-affiliate Brand?",
          acter: `/products/delete/brand?brand=${req.query.brand}`,
@@ -107,7 +106,7 @@ const deleteBrand = asyncHandler(async (req, res) => {
 })
 
 const brandDeleteVerifier = asyncHandler(async (req, res) => {
-    console.log(req.query)
+    
     if(req.body.deletePass == process.env.ADMINPASSWORD) {
         query.deleteBrand(req.query.brand)
         res.redirect('/')
@@ -123,7 +122,6 @@ const brandDeleteVerifier = asyncHandler(async (req, res) => {
 })
 
 const deleteProduct = asyncHandler(async (req, res) => {
-    console.log('dp', req.query)
     res.render('delete', 
         {heading: "Delete Product?",
          acter: `/products/delete/product?product=${req.query.product}`,
@@ -133,7 +131,6 @@ const deleteProduct = asyncHandler(async (req, res) => {
 })
 
 const productDeleteVerifier = asyncHandler(async (req, res) => {
-    console.log('verify', req.query)
     if(req.body.deletePass == process.env.ADMINPASSWORD) {
         query.deleteProductById(req.query.product)
         res.redirect('/products')

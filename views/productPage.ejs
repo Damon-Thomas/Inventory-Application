@@ -16,18 +16,20 @@
                 <ul class="productContainer">
                     <% for(let i=0; i < products.length; i++) { %>
                         <li onClick="location.href = `/products/update/<%= products[i].id %>`" class="productCard">
-                            <h3 class="productCardName">
-                                <%= products[i].name %>
-                            </h3>
-                            <div class="productContent">
-                                <p class="productCardPrice">$ <%= products[i].price %>
-                                </p>
-                                <p class="productCardBrand">
-                                    <%= products[i].brand %>
-                                </p>
+                            <div class="topContent">
+                                <h3 class="productCardName">
+                                    <%= products[i].name %>
+                                </h3>
+                                <div class="productContent">
+                                    <p class="productCardPrice">$ <%= products[i].price %>
+                                    </p>
+                                    <p class="productCardBrand">
+                                        <%= products[i].brand %>
+                                    </p>
+                                </div>
+                                <img loading="lazy" src=<%=products[i].image %> alt="" class="productCardImage"></img>
                             </div>
-                            <img loading="lazy" src=<%=products[i].image %> alt="" class="productCardImage"></img>
-                            <a href="/products/delete/product?product=<%= products[i].id%>" class="deleteBrand">Delete</a>
+                            <a href="/products/delete/product?product=<%= products[i].id%>" class="deleteProduct">Delete</a>
                         </li>
                         <% } %>
                 </ul>

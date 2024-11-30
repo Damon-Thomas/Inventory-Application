@@ -1,5 +1,33 @@
-.body {
-    height: 100vh;
-    width: 100vw;
+body {
+    height: calc(100vh - 2em);
+    width: calc(100vw - 2em);
+    padding: 1em;
+    margin: 0;
+    background-image: url('../assets/compressedToolShed.jpg');
     background-color: antiquewhite;
+    background-position: center;
+    background-size: cover;
+    box-shadow: inset 0 0 0 1000px rgba(0,0,0,.75);;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+a {
+    font-size: 1.5em;
+    font-weight: 700;
+    text-decoration: none;
+    color: rgb(0, 6, 8);
+    
+    background-color: aliceblue;
+    border: none;
+    border-radius: 1em;
+    padding: .25em .5em;
+}
+
+.errorTitle {
+    margin-top: 0;
 }

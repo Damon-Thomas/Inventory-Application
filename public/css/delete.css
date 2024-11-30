@@ -1,0 +1,70 @@
+:root {
+    --headIconHeight: calc(1em + 4vw)
+}
+
+body {
+    height: calc(100vh - 2em);
+    width: calc(100vw - 2em);
+    padding: 1em;
+    margin: 0;
+    background-image: url('../assets/compressedToolShed.jpg');
+    background-color: antiquewhite;
+    background-position: center;
+    background-size: cover;
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, .75);
+    ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.subTitle {
+    margin-top: 0;
+}
+
+.errorMessage {
+    height: 1.25em;
+    font-size: 1em;
+    color: red;
+    text-align: center;
+    margin: 0.25em;
+}
+
+.verifyDeleter {
+    padding: .25em .75em;
+    border: none;
+    border-radius: .25em;
+    font-weight: 700;
+    font-size: 1.25em;
+}
+
+.deleteLabel,
+.deleteInput {
+    font-size: calc(.75em + 1vw);
+    font-weight: 700;
+
+}
+
+.topPart {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+}
+
+.headIcon {
+    width: var(--headIconHeight);
+    height: var(--headIconHeight);
+    fill: white;
+}
+
+.head {
+    position: absolute;
+    top: calc(1em + 2vw);
+    left: calc(1em + 2vw);
+    display: flex;
+    gap: calc(.5em + 1vw);
+    align-items: center;
+}

@@ -49,7 +49,6 @@ async function deleteBrand(brand) {
 
 async function deleteProductById(id) {
   await pool.query(`DELETE FROM all_inventory WHERE id=${id};`);
-  console.log('id', id)
 }
 
 async function getProductById(id) {
