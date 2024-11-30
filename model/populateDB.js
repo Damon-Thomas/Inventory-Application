@@ -67,7 +67,7 @@ VALUES
 
 async function main() {
   const client = new Client({
-    connectionString: `postgres://${process.env.USER}:${process.env.PASSWORD}@${process.env.HOST}:${process.env.DBPORT}/${process.env.DB}`,
+    connectionString: process.env.DATABASE_URL,
   });
   await client.connect();
   await client.query(SQL);
