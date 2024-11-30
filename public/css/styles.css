@@ -165,6 +165,7 @@ a {
     height: var(--footerHeight);
     background-color: var(--grey);
     color: #F0F0F0;
+    text-align: center;
 }
 
 form {

@@ -99,7 +99,7 @@ const submitUpdateProduct = asyncHandler(async (req, res) => {
 const deleteBrand = asyncHandler(async (req, res) => {
     console.log(req.query)
     res.render('delete', 
-        {selection: "brand",
+        {heading: "Un-affiliate Brand?",
          acter: `/products/delete/brand?brand=${req.query.brand}`,
          pass: ''
         }
@@ -114,7 +114,7 @@ const brandDeleteVerifier = asyncHandler(async (req, res) => {
     }
     else {
         res.render('delete',
-            {selection: 'brand', 
+            {heading: "Un-affiliate Brand?", 
                 acter: `/products/delete/brand?brand=${req.query.brand}`,
                 pass: 'Invalid Password'
             }
@@ -125,7 +125,7 @@ const brandDeleteVerifier = asyncHandler(async (req, res) => {
 const deleteProduct = asyncHandler(async (req, res) => {
     console.log('dp', req.query)
     res.render('delete', 
-        {selection: "product",
+        {heading: "Delete Product?",
          acter: `/products/delete/product?product=${req.query.product}`,
          pass: ''
         }
@@ -140,7 +140,7 @@ const productDeleteVerifier = asyncHandler(async (req, res) => {
     }
     else {
         res.render('delete',
-            {selection: 'product', 
+            {heading: "Delete Product?", 
                 acter: `/products/delete/product?product=${req.query.product}`,
                 pass: 'Invalid Password'
             }

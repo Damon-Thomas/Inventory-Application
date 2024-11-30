@@ -3,7 +3,8 @@
     --cardGap: calc(2vw + .5em);
     --innerCardGap: calc(.5vw + .25em);
     --background: #F0F0F0;
-    --cardPadding: calc(.25em + 1vw)
+    --cardPadding: calc(.25em + 1vw);
+    --priceFontSize: calc(.75em + 1vw)
 }
 
 .productCardImage {
@@ -33,11 +34,12 @@
 .productCardName {
     height: 3.4em;
     overflow-y: hidden;
+   
 }
 
 .productCardPrice {
     font-weight: 800;
-    font-size: 1.5em;
+    font-size: var(--priceFontSize);
 }
 
 .productCardBrand {
@@ -46,8 +48,9 @@
 
 .productContent{
     display: flex;
+    flex-direction: column-reverse;
     width: var(--cardSize);
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: start;
+    align-items: start;
+   
 }
